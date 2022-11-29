@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+double fact(int z) {
+	int i = 1;
+	double g = 1;
+	while (i <= z) {
+		g *= i;
+		i++;
+	}
+	return g;
+}
+
+int main() {
+	double x, e;
+	scanf_s("%lf", &x);
+	scanf_s("%lf", &e);
+	if (e > 1 || e < 0) {
+		printf("неверное знаечение е");
+		return 0;
+	}
+	double y, s;
+	y = 1.0;
+	s = 0.0;
+	int n = 0;
+	while (abs(y) > e) {
+		y *= ((pow(-1, n) * pow(x, 2 * n)) / fact(n));
+		n++;
+		s += ((pow(-1, n) * pow(x, 2 * n)) / fact(n));
+	}
+	printf("%lf\n", 1.0 + s);
+	printf("%lf", exp(-1 * pow(x, 2)));
+	return 0;
+	
+}
